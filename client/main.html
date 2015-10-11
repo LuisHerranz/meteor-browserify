@@ -1,0 +1,71 @@
+<head>
+  <title>The Meteor-Browserify Project</title>
+</head>
+
+<body>
+  <h1>The Meteor-Browserify project.</h1>
+  <h4>Use NPM packages in the client.</h4>
+  {{> form}}
+  {{> validation}}
+</body>
+
+<template name="form">
+  <form data-action-type="CHECK-NPM-PACKAGE">
+    <input type="text" name="package" value="">
+    <input type="submit" value="submit">
+  </form>
+</template>
+
+<template name="validation">
+  <br />
+  {{#if checkingNpm}}
+    <div class="checking">
+      (checking npm...)
+    </div>
+  {{/if}}
+  {{#if npmPackage.found}}
+    <div class="">
+      Success!! The NPM package <strong>{{npmPackage.name}}</strong> exists and the last version is <strong>{{npmPackage.lastVersion}}</strong>.
+    </div>
+  {{/if}}
+  {{#if npmPackage.notFound}}
+    NPM package not found! Sorry, check the name in <a href='https://www.npmjs.com/' target="_blank">npm</a>.
+  {{/if}}
+  {{#if meteorPackage.found}}
+    <div class="">
+      Success!! The Meteor package <strong>{{meteorPackage.name}}</strong> exists and the last version is <strong>{{meteorPackage.lastVersion}}</strong>.
+    </div>
+  {{/if}}
+  {{#if meteorPackage.notFound}}
+    <div class="">
+      Meteor package not found!
+      <br />
+      Do you want to create a Meteor package?
+      <button
+        data-action-type='PUBLISH-METEOR-PACKAGE'
+        data-action-task='create'>
+        YES!
+      </button>
+    </div>
+  {{/if}}
+  {{#if bothPackages.different}}
+    <div class="">
+      Do you want to update the Meteor package now?
+      <button
+        data-action-type='PUBLISH-METEOR-PACKAGE'
+        data-action-task='update'>
+        YES!
+      </button>
+    </div>
+  {{/if}}
+  {{#if bothPackages.equal}}
+    <div class="">
+      You can add it to your project using <strong>meteor add {{meteorPackage.name}}</strong>.
+    </div>
+  {{/if}}
+  {{#if packageStatus}}
+    <div class="">
+      Adding package, status: {{packageStatus.status}}
+    </div>
+  {{/if}}
+</template>

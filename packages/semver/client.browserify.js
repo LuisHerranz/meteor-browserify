@@ -1,0 +1,1 @@
+Browserify['semver'] = require('semver');

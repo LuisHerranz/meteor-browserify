@@ -1,0 +1,11 @@
+#!/usr/bin/expect -f
+set timeout 10000
+log_user 0
+spawn meteor login
+expect "Username: "
+send "browserify\r"
+expect "Password: "
+send "browserify\r"
+expect "Logged in as browserify. Thanks for being a Meteor developer!"
+send_user "Logged in successfully!"
+exit
