@@ -13,7 +13,7 @@ Npm.depends({
 Package.onUse(function(api) {
   api.versionsFrom('1.2');
   api.use('browserify:base@1.0.0', 'client');
-  api.use('cosmos:browserify@0.8.0', 'client');
+  api.use('cosmos:browserify@0.8.3', 'client');
   api.addFiles('client.browserify.js', 'client');
   api.imply('browserify:base', 'client');
 });
