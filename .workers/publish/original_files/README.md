@@ -1,6 +1,6 @@
 # Meteor browserify:PACKAGENAME
 
-This package has been created with [browserify.meteor.com](http://browserify.meter.com).
+This package has been created with [browserify.meteor.com](http://browserify.meteor.com).
 
 The current version is: PACKAGEVERSION
 
@@ -18,7 +18,7 @@ Then, in your code, require it with:
 SomeName = Browserify["PACKAGENAME"];
 ```
 
-If you want to update it to the last NPM version, go to [browserify.meteor.com](http://browserify.meter.com).
+If you want to update it to the last NPM version, go to [browserify.meteor.com](http://browserify.meteor.com).
 
 ### Contribute
 
